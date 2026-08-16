@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | FGHSTUDIO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        body {
+            background-image: url('fgh.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #0b0914; /* Fallback dark background */
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Overlay for backdrop effect */
+        .overlay {
+            min-height: 100vh;
+            background: rgba(10, 8, 20, 0.75);
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header & Navigation Bar */
+        header {
+            background: rgba(15, 10, 30, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c084fc;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        /* Hero Banner inside About */
+        .about-hero {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            margin-bottom: 2.5rem;
+        }
+
+        .about-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #ffffff 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-hero p {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(192, 132, 252, 0.2);
+            border: 1px solid #c084fc;
+            color: #e9d5ff;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Content Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: rgba(20, 15, 35, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(192, 132, 252, 0.4);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card p {
+            color: #9ca3af;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .services-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .services-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        .services-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #c084fc;
+        }
+
+        /* Call To Action Box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(88, 28, 135, 0.4) 0%, rgba(15, 10, 30, 0.7) 100%);
+            border: 1px solid rgba(192, 132, 252, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-box p {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #c084fc;
+            color: #111827;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #d8b4fe;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 8, 20, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <!-- Navigation Header -->
+        <header>
+            <nav>
+                <a href="index.html" class="logo">FGHSTUDIO</a>
+                <ul class="nav-links">
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container">
+            <!-- Hero Card -->
+            <section class="about-hero">
+                <span class="badge">Visual Stories & Animation</span>
+                <h1>ABOUT FGHSTUDIO</h1>
+                <p>
+                    Where imagination takes visual form. We are an indie creative studio dedicated to bringing original visual stories, expressive character art, and smooth animations to life.
+                </p>
+            </section>
+
+            <!-- Details Section -->
+            <section class="grid-2">
+                <div class="card">
+                    <h2>Our Vision</h2>
+                    <p>
+                        At FGHSTUDIO, we believe every frame should tell a story. Whether developing expressive color concepts, crafting unique character designs, or designing immersive world settings, our passion lies in transforming creative ideas into compelling visual experiences.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h2>What We Do</h2>
+                    <ul class="services-list">
+                        <li><strong>Animation & Movement:</strong> Dynamic character tests and sequence production.</li>
+                        <li><strong>Character Design:</strong> Original concept design and stylized visual development.</li>
+                        <li><strong>Visual Storytelling:</strong> Scene conceptualization, color scripts, and storyboarding.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Call To Action -->
+            <section class="cta-box">
+                <h3>Have a project in mind?</h3>
+                <p>We are open for creative collaborations, custom artwork, and animation projects.</p>
+                <a href="index.html#contact" class="btn">HIRE US</a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 FGHSTUDIO. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
