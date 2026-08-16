@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FGHSTUDIO | Visual Stories & Animation</title>
+  <style>
+    :root {
+      --primary-purple: #9333ea;
+      --glow-purple: #a855f7;
+      --card-bg: rgba(15, 10, 30, 0.75);
+      --card-border: rgba(147, 51, 234, 0.3);
+      --text-main: #ffffff;
+      --text-sub: #cbd5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #080511;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+  body{
+    background-image: url(it\ will\ make\ u\ cry.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    
+    }
+
+    /* Header & Navigation Bar */
+    header {
+      background: rgba(15, 10, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #ffffff;
+      text-shadow: 0 0 15px var(--glow-purple);
+      text-transform: uppercase;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--glow-purple);
+      text-shadow: 0 0 8px var(--glow-purple);
+    }
+
+    /* Layout Wrapper */
+    .main-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Hero Banner Area */
+    .hero-banner {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-banner h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+    }
+
+    .hero-banner p {
+      color: var(--text-sub);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Working Hire Us Button */
+    .btn-hire {
+      display: inline-block;
+      background: linear-gradient(135deg, #a855f7, #7e22ce);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      padding: 0.8rem 3rem;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-hire:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.8);
+    }
+
+    /* Bottom Section Layout */
+    .bottom-widgets {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .widget-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .widget-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--glow-purple);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    /* Portfolio Items Grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+    }
+
+    .portfolio-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* Social Media Icons Area */
+    .social-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-icon {
+      flex: 1;
+      height: 55px;
+      background: var(--glow-purple);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+    }
+
+    .social-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    /* Footer Strip */
+    footer {
+      background: rgba(8, 5, 17, 0.95);
+      border-top: 1px solid var(--card-border);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    footer a {
+      color: var(--glow-purple);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* Responsive adjustment */
+    @media (max-width: 850px) {
+      .bottom-widgets {
+        grid-template-columns: 1fr;
+      }
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-banner h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fullscreen Artwork Background -->
+  <div class="bg-hero"></div>
+
+  <!-- Header Navigation Bar -->
+  <header>
+    <nav>
+      <div class="nav-left">
+        <ul class="nav-menu">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <div class="brand-title">FGHSTUDIO</div>
+
+      <div class="nav-right">
+        <ul class="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="mailto:fghstudiooffical@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <div class="main-container">
+    
+
+    <!-- Hero Box -->
+    <div class="hero-banner">
+      <h1>FGHSTUDIO</h1>
+      <p>Visual Stories & Animation</p>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fghstudiooffical@gmail.com&su=Animation%20Project%20Inquiry%20-%20FGHSTUDIO&body=Hi%20FGHSTUDIO,%0A%0AI%20would%20like%20to%20discuss%20an%20animation%20project..." 
+         target="_blank" 
+         class="btn-hire">
+        HIRE US
+      </a>
+    </div>
+
+    <!-- Bottom Widgets (Portfolio + Socials) -->
+    <div class="bottom-widgets">
+      
+      <!-- Portfolio Cards Slot -->
+      <div class="widget-card" id="portfolio">
+        <div class="widget-title">Portfolio</div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item"><img src="sketch.png" alt="Sketch Demo"></div>
+          <div class="portfolio-item"><img src="color concept.png" alt="Color Concept"></div>
+          <div class="portfolio-item"><img src="fgh.png" alt="Character Design"></div>
+          <div class="portfolio-item"><img src="it will make u cry.gif" alt="Movement Test"></div>
+        </div>
+      </div>
+
+      <!-- Social Media Slot -->
+      <div class="widget-card">
+        <div class="widget-title">Follow Us</div>
+        <div class="social-buttons">
+          <!-- YouTube Link -->
+          <a href="https://www.youtube.com/@fghstudio_offical" target="_blank" class="social-icon" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <!-- TikTok Link -->
+          <a href="https://www.tiktok.com/@fghstudio_offical" target="_blank" class="social-icon" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.98-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.57-1.31 1.55-1.3 2.53-.02.86.37 1.72 1.05 2.26.83.67 1.98.83 2.97.56.96-.24 1.77-.97 2.1-1.89.21-.63.25-1.31.25-1.97.02-5.38.01-10.76.01-16.14z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Strip -->
+  <footer>
+    EMAIL: <a href="mailto:fghstudiooffical@gmail.com">fghstudiooffical@gmail.com</a>
+  </footer>
+
+<!-- About Section -->
+      <div class="widget-card" id="about">
+        <div class="widget-title">About Us</div>
+        <p class="about-text">
+          Welcome to <strong>FGHSTUDIO</strong>. We specialize in bringing original concepts to life through 2D animation, character design, and visual storytelling. Whether you need custom art, animated clips, or full creative design services, we turn ideas into engaging visual experiences.
+        </p>
+      </div>
+
+</body>
+</html>
